@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/vehicleMakeFragment">
+
+    <fragment
+        android:id="@+id/vehicleMakeFragment"
+        android:name="com.goranm.vehiclemakeandmodel.fragments.vehicleMake.VehicleMakeFragment"
+        android:label="List of Vehicle Make"
+        tools:layout="@layout/fragment_vehicle_make" >
+        <action
+            android:id="@+id/action_vehicleMakeFragment_to_addVehicleMake"
+            app:destination="@id/addVehicleMake" />
+        <action
+            android:id="@+id/action_vehicleMakeFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_vehicleMakeFragment_to_vehicleModelFragment"
+            app:destination="@id/vehicleModelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVehicleMake"
+        android:name="com.goranm.vehiclemakeandmodel.fragments.add.AddVehicleMake"
+        android:label="Add a vehicle"
+        tools:layout="@layout/fragment_add_vehicle_make" >
+        <action
+            android:id="@+id/action_addVehicleMake_to_vehicleMakeFragment"
+            app:destination="@id/vehicleMakeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.goranm.vehiclemakeandmodel.fragments.update.UpdateFragment"
+        android:label="Update" >
+        <action
+            android:id="@+id/action_updateFragment_to_vehicleMakeFragment"
+            app:destination="@id/vehicleMakeFragment" />
+        <argument
+            android:name="currentVehicle"
+            app:argType="com.goranm.vehiclemakeandmodel.model.VehicleMake" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleModelFragment"
+        android:name="com.goranm.vehiclemakeandmodel.fragments.vehicleModel.VehicleModelFragment"
+        android:label="fragment_vehicle_model">
+        <action
+            android:id="@+id/action_vehicleModelFragment_to_vehicleMakeFragment"
+            app:destination="@id/vehicleMakeFragment" />
+        <argument
+            android:name="currentVehicleObject"
+            app:argType="com.goranm.vehiclemakeandmodel.model.VehicleMake" />
+    </fragment>
+</navigation>
